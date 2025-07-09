@@ -1,0 +1,517 @@
+.product-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin-top: 60px;
+  background-image: url(".src/images/Fondo.png"); /* Ruta relativa a la imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+  padding-bottom: 20px; /* Espaciado inferior para evitar que el contenido quede pegado al borde */
+}
+  
+.product-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0); /* Color superpuesto con opacidad */
+  z-index: -1;
+}
+  
+.product-page__details {
+  display: flex;
+  gap: 80px;
+}
+  
+.product-page__image {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Animación suave */
+  opacity: 1;
+}
+  
+.product-page__image.hidden {
+  opacity: 0;
+  transform: translateX(100%); /* Desplaza la imagen fuera de la vista */
+}
+  
+.product-page__info {
+  flex: 1;
+}
+  
+.product-page__info h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+  
+.product-page__info p {
+  margin: 5px 0;
+}
+  
+.product-page__actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;  
+  gap: 15px; 
+}
+  
+.btn {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+}
+  
+.btn-buy {
+  background-color: #4CAF50;
+  color: white;
+}
+  
+.btn-cart {
+  background-color: #008CBA;
+  color: white;
+}
+  
+.btn-favorite {
+  background-color: #FFD700;
+  color: black;
+}
+  
+.btn-submit {
+  background-color: #FF5733;
+  color: white;
+}
+  
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  margin-bottom: 10px;
+} 
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar__links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar__links a:hover {
+  text-decoration: underline;
+}
+ 
+.product-page {
+  margin-top: 150px;  
+}
+ 
+.product-page__sizes {
+  margin-top: 20px;
+}
+
+.size-selector {
+  width: 200px; /* Establece un ancho fijo */
+  padding: 10px; /* Ajusta el relleno interno */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 0 auto; /* Centra el selector horizontalmente */
+  display: block; /* Asegura que se comporte como un bloque */
+}
+ 
+.product-page__quantity {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+ 
+/* Carrusel más grande */
+.product-page__carousel {
+  position: relative;
+  display: flex;
+  align-items: center; /* Cambiado de 'left' a 'center' para mejor alineación */
+  justify-content: center; /* Cambiado de 'left' a 'center' para centrar el contenido */
+  margin-top: -220px;
+  margin-bottom: 10px;
+  transform: scale(1) translateX(0) translateY(0); /* Valores por defecto para evitar errores */
+  overflow: hidden; /* Oculta las imágenes fuera del contenedor */
+  max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+  width: 400px; /* Ajusta este valor según el tamaño deseado */
+  height: 900px; /* Ajusta este valor según el tamaño deseado */
+}
+
+.product-page__carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px; /* Ancho fijo */
+  height: 450px; /* Alto fijo */
+  overflow: hidden; /* Oculta cualquier contenido que exceda el tamaño del contenedor */
+  margin: 0 auto; /* Centra el carrusel */
+  background-color: #f5f5f5; /* Fondo para evitar espacios vacíos mientras carga */
+  border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
+.product-page__carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que las imágenes se ajusten sin deformarse */
+}
+
+.product-page__carousel img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asegura que las imágenes se ajusten sin deformarse */
+}
+
+/* Botones del carrusel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(18, 6, 125, 0.36);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 50%;
+  width: 20px; /* Más grandes */
+  height: 40px;
+  cursor: pointer;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease; /* Animación */
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1); /* Efecto de agrandamiento al pasar el mouse */
+}
+
+/* Botón anterior */
+.prev-btn {
+  left: 10px;
+}
+
+/* Botón siguiente */
+.next-btn {
+  right: 10px;
+}
+
+/* Iconos explicativos */
+.carousel-btn::before {
+  content: attr(data-icon); /* Usa un atributo personalizado para los iconos */
+  font-family: 'Font Awesome 5 Free'; /* Asegúrate de incluir Font Awesome en tu proyecto */
+  font-weight: 900;
+}
+
+/* Ejemplo de iconos */
+.prev-btn::before {
+  content: '\f104'; /* Icono de flecha izquierda */
+}
+
+.next-btn::before {
+  content: '\f105'; /* Icono de flecha derecha */
+}
+
+/* Precio más grande */
+.product-page__info p.price {
+  font-size: 18px; /* Aumenta el tamaño de la fuente */
+  font-weight: bold;
+}
+/* Botón de compra más grande */
+.btn-buy {
+  padding: 15px 20px; /* Ajusta el relleno interno */
+  font-size: 16px; /* Mantén el tamaño de la fuente */
+  width: 200px; /* Establece un ancho fijo */
+  margin: 0 auto; /* Centra los botones horizontalmente */
+  display: block; /* Asegura que se comporten como bloques */
+}
+/* Botón de añadir al carrito más grande */
+.btn-cart {
+  padding: 15px 20px; /* Ajusta el relleno interno */
+  font-size: 16px; /* Mantén el tamaño de la fuente */
+  width: 200px; /* Establece un ancho fijo */
+  margin: 0 auto; /* Centra los botones horizontalmente */
+  display: block; /* Asegura que se comporten como bloques */
+}
+/* Botón de añadir a favoritos más grande */
+.btn-favorite {
+  padding: 15px 20px; /* Ajusta el relleno interno */
+  font-size: 16px; /* Mantén el tamaño de la fuente */
+  width: 200px; /* Establece un ancho fijo */
+  margin: 0 auto; /* Centra los botones horizontalmente */
+  display: block; /* Asegura que se comporten como bloques */
+}
+/* Botón de consulta más grande */
+.btn-submit {
+  padding: 15px 20px; /* Aumenta el tamaño del botón */
+  font-size: 16px; /* Aumenta el tamaño de la fuente */
+}
+/* Estilo para el formulario de consulta */
+.product-page__consultation {
+  margin: 20px auto; /* Centra horizontalmente */
+  padding: 50px;
+  width: 80%; /* Define un ancho relativo */
+  max-width: auto; /* Limita el ancho máximo */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: black;
+  text-align: center; /* Centra el contenido interno */
+  display: flex; /* Flexbox para centrar verticalmente */
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  align-items: center; /* Centra horizontalmente los elementos internos */
+  justify-content: center; /* Centra verticalmente los elementos internos */
+}
+/* Estilo para el botón de enviar */
+.btn-submit {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+/* Estilo para el botón de enviar al pasar el mouse */
+.btn-submit:hover {
+  background-color: #45a049;
+}
+/* Estilo para el botón de enviar al hacer clic */
+.btn-submit:active {
+  transform: scale(0.98);
+}
+/* Estilo para el botón de enviar al deshabilitar */
+.btn-submit:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+/* Estilo para el botón de enviar al deshabilitar al pasar el mouse */
+.btn-submit:disabled:hover {
+  background-color: #ccc;
+}
+/* Estilo para el botón de enviar al deshabilitar al hacer clic */
+.btn-submit:disabled:active {
+  transform: none;
+}
+
+/* Animación al pasar el mouse */
+.btn:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+}
+
+/* Animación al hacer clic */
+.btn:active {
+  transform: scale(0.95); /* Reduce ligeramente el tamaño */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce la sombra */
+}
+
+.product-page__similar {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  background-color: black; /* Fondo similar */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  color: white; /* Texto blanco */
+}
+
+.product-page__similar h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.similar-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.similar-carousel__track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(calc(-100% * var(--current-index, 0)));
+}
+
+.similar-carousel__item {
+  min-width: 150px;
+  margin: 0 10px;
+  text-align: center;
+  color: #ffffff;
+  
+}
+
+.similar-carousel__image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.product-page__carousel-container {
+  max-width: 100px; /* Limita el ancho del contenedor */
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+.product-page__shipping {
+  margin-top: 20px;
+  display: flex; /* Habilita flexbox */
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  align-items: center; /* Alinea los elementos al inicio (izquierda) */
+  gap: 10px; /* Espaciado entre los elementos */
+}
+
+.postal-code-input {
+  width: 200px; /* Ancho fijo */
+  padding: 10px; /* Ajusta el relleno interno */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.btn-calculate {
+  width: 200px; /* Ancho fijo igual al input */
+  padding: 10px; /* Ajusta el relleno interno */
+  font-size: 14px; /* Tamaño de fuente consistente */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #4CAF50; /* Color de fondo */
+  color: white; /* Color del texto */
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-calculate:hover {
+  background-color: #45a049; /* Color al pasar el mouse */
+}
+
+.product-page__actions-container {
+  display: flex; /* Habilita flexbox */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+  gap: 50px; /* Espaciado entre las columnas */
+  margin-top: 20px; /* Espaciado superior */
+}
+
+.product-page__actions {
+  display: flex;
+  flex-direction: column; /* Asegura que los botones estén en columna */
+  gap: 15px; /* Espaciado entre los botones */
+}
+
+.product-page__sizes-shipping {
+  display: flex;
+  flex-direction: column; /* Asegura que "Seleccionar talle" y "Calcular envío" estén en columna */
+  gap: -20px; /* Espaciado entre "Seleccionar talle" y "Calcular envío" */
+  margin-top: -15px;
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.product-page__sizes,
+.product-page__shipping {
+  width: 200px; /* Asegura que ambos tengan el mismo ancho */
+  text-align: center; /* Centra el texto dentro de cada bloque */
+}
+
+.consultation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.consultation-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre el textarea y el ícono */
+}
+
+.consultation-textarea {
+  flex: 1; /* Ocupa todo el espacio disponible */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.whatsapp-icon {
+  font-size: 24px;
+  color: #25D366; /* Color oficial de WhatsApp */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e5e5e5; /* Fondo claro para el ícono */
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+  background-color: #d4f5e9; /* Fondo más claro al pasar el mouse */
+}

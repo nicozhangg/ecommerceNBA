@@ -1,0 +1,21 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas iguales */
+  gap: 20px; /* Espacio entre productos */
+  padding: 20px; /* Espacio alrededor de la cuadrícula */
+}
+
+.no-products {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100%; /* Asegura que ocupe toda la altura disponible */
+  text-align: center; /* Alinea el texto al centro */
+  grid-column: span 4; /* Hace que el mensaje ocupe todas las columnas en caso de que no haya productos */
+}
+
+.no-products p {
+  font-size: 2rem; 
+  font-weight: bold; /* Hace el texto en negrita */
+  color: #ffffff; 
+}

@@ -1,0 +1,192 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Camiseta LeBron Lakers City Edition",
+      "price": "$75.000",
+      "image": "https://www.redrat.co.nz/content/products/nike-x-nba-los-angeles-lakers-lebron-james-icon-swingman-jersey-youth-amarillo-side-detail-53964.jpg",
+      "images": [
+        "https://images.footballfanatics.com/los-angeles-lakers/los-angeles-lakers-nike-icon-swingman-jersey-james-23-mens_ss5_p-202685708+pv-2+u-raihvjfgcc7nxqnek3mu+v-t8vthtmw9twgoyp4echk.jpg?_hv=2&w=900",
+        "https://fanatics.frgimages.com/los-angeles-lakers/mens-fanatics-lebron-james-gold-los-angeles-lakers-fast-break-replica-jersey-icon-edition_ss5_p-201451085+pv-3+u-jgui2u1zrf8sskilncqf+v-wx6333ycedl8ycorg9re.jpg?_hv=2&w=900"
+      ],
+      "equipo": "Lakers",
+      "stock": {
+        "S": 1,
+        "M": 4,
+        "L": 2,
+        "XL": 1
+
+      }
+    },
+    {
+      "id": "2",
+      "title": "Camiseta Stephen Curry Warriors Home",
+      "price": "$70.000",
+      "image": "https://classicamericansports.com/cdn/shop/files/CAS-38_8275a67c-b4ba-4abc-956a-a86b15e26648_2000x2000.jpg?v=1689689851",
+      "images": [
+        "https://sporting.vtexassets.com/arquivos/ids/1712642-1200-1200?v=638700395094000000&width=1200&height=1200&aspect=true",
+        "https://sporting.vtexassets.com/arquivos/ids/1712643-1200-1200?v=638700395100100000&width=1200&height=1200&aspect=true"
+      ],
+      "equipo": "Warriors",
+      "stock": {
+        "S": 4,
+        "M": 0,
+        "L": 4,
+        "XL": 1
+      }
+    },
+    {
+      "id": "3",
+      "title": "Camiseta Chicago Bulls Michael Jordan 1984",
+      "price": "$80.000",
+      "image": "https://shop.bulls.com/cdn/shop/files/BULLMZ2311D.jpg?v=1695843653&width=823",
+      "images": [
+        "https://images.footballfanatics.com/chicago-bulls/chicago-bulls-michael-jordan-1984-road-authentic-jersey-by-mitchell-and-ness-scarlett-mens_ss4_p-11998018+pv-1+u-10x0jffdhagoyt7xpeej+v-4885a18055c547c090ce2d28f5e3a145.jpg?_hv=2&w=900",
+        "https://images.footballfanatics.com/chicago-bulls/chicago-bulls-michael-jordan-1984-road-authentic-jersey-by-mitchell-and-ness-scarlett-mens_ss4_p-11998018+pv-2+u-10x0jffdhagoyt7xpeej+v-a9ddeae456594e33aa94989f1bbd230c.jpg?_hv=2&w=900"
+      ],
+      "equipo": "Bulls",
+      "stock": {
+        "S": 0,
+        "M": 2,
+        "L": 2,
+        "XL": 0
+      }
+    },
+    {
+      "id": "4",
+      "title": "Camiseta Kevin Durant Phoenix Suns",
+      "price": "$80.000",
+      "image": "https://m.media-amazon.com/images/I/61tGVEKa7JL._AC_SY550_.jpg",
+      "images": [
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6e347ffe-77ca-479b-a64a-07cfecdaac7c/PHX+MNK+DF+SWGMN+JSY+ICN+23.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/14229ad5-bc91-4747-8ed4-5f526281b282/PHX+MNK+DF+SWGMN+JSY+ICN+23.png"
+      ],
+      "equipo": "Suns",
+      "stock": {
+        "S": 0,
+        "M": 1,
+        "L": 7,
+        "XL": 4
+      }
+    },
+    {
+      "id": "5",
+      "title": "Camiseta Giannis Antetokounmpo Milwaukee Bucks",
+      "price": "$90.000",
+      "image": "https://m.media-amazon.com/images/I/61jqq6gSeiL._AC_SX522_.jpg",
+      "images": [
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1d5d3e0f-d3c0-468c-b165-68f7b1667b14/MIL+MNK+DF+SWGMN+JSY+ICN+22.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/f72fc637-094c-4a75-9381-b406beac960a/MIL+MNK+DF+SWGMN+JSY+ICN+22.png"
+      ],
+      "equipo": "Bucks",
+      "stock": {
+        "S": 5,
+        "M": 0,
+        "L": 2,
+        "XL": 3
+      }
+    },
+    {
+      "id": "6",
+      "title": "Camiseta Tyrese Haliburton Indiana Pacers",
+      "price": "$95.000",
+      "image": "https://www.pacersteamstore.com/cdn/shop/files/0026_Layer-1_1770e13a-6c7d-4517-97f7-026516ac0954.jpg?v=1694808654&width=1800",
+      "images": [
+        "https://images.footballfanatics.com/indiana-pacers/indiana-pacers-nike-icon-swingman-jersey-haliburton-0-youth_ss5_p-202685716+pv-2+u-6o9icup49yj6slttouwi+v-jtrmk7dndxqsqcsm6p5f.jpg?_hv=2&w=900",
+        "https://images.footballfanatics.com/indiana-pacers/indiana-pacers-nike-icon-swingman-jersey-haliburton-0-youth_ss5_p-202685716+pv-3+u-6o9icup49yj6slttouwi+v-nlkhhgwnbjkvkxigsly6.jpg?_hv=2&w=900"
+      ],
+      "equipo": "Pacers",
+      "stock": {
+        "S": 4,
+        "M": 5,
+        "L": 1,
+        "XL": 0
+      }
+    },
+    {
+      "id": "7",
+      "title": "Camiseta Luka Dončić Lakers",
+      "price": "$80.000",
+      "image": "https://s1.img.bidsquare.com/item/xl/3009/30091555.jpeg?t=1TV2ZY",
+      "images": [
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a9de5c36-c3f9-498c-a1e8-48be750478b0/LAL+MNK+DF+SWGMN+JSY+ICN+22.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/03fe8fa1-9a43-43e5-a857-8c9401f97f0c/LAL+MNK+DF+SWGMN+JSY+ICN+22.png"
+      ],
+      "equipo": "Lakers",
+      "stock": {
+        "S": 1,
+        "M": 1,
+        "L": 2,
+        "XL": 5
+      }
+    },
+    {
+      "id": "8",
+      "title": "Camiseta Joel Embiid Philadelphia 76ers",
+      "price": "$85.000",
+      "image": "https://m.media-amazon.com/images/I/61UaLoa-uyL._AC_SY679_.jpg",
+      "images": [
+        "https://images.footballfanatics.com/philadelphia-76ers/philadelphia-76ers-nike-icon-edition-swingman-jersey-navy-joel-embiid-youth_ss5_p-200377414+pv-2+u-nyhpp0y6y9ljgzepck2w+v-05yamk4ny7xmn33iac6m.jpg?_hv=2&w=900",
+        "https://images.footballfanatics.com/philadelphia-76ers/philadelphia-76ers-nike-icon-edition-swingman-jersey-navy-joel-embiid-youth_ss5_p-200377414+pv-3+u-nyhpp0y6y9ljgzepck2w+v-czhaemyf2whlqgyc1f0n.jpg?_hv=2&w=900"
+      ],
+      "equipo": "76ers",
+      "stock": {
+        "S": 3,
+        "M": 6,
+        "L": 0,
+        "XL": 1
+      }
+    },
+    {
+      "id": "9",
+      "title": "Camiseta Damian Lillard Milwaukee Bucks",
+      "price": "$75.000",
+      "image": "https://m.media-amazon.com/images/I/71a2fKjy5ML._AC_SX679_.jpg",
+      "images": [
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/4ee5c695-c38d-4e36-a0c9-8fba00354dec/MIL+MNK+DF+SWGMN+JSY+ICN+22.png",
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e96bf1ed-d2a9-47b2-b6b9-c90cfec0d094/MIL+MNK+DF+SWGMN+JSY+ICN+22.png"
+      ],
+      "equipo": "Bucks",
+      "stock": {
+        "S": 7,
+        "M": 2,
+        "L": 4,
+        "XL": 0
+      }
+    },
+    {
+      "id": "10",
+      "title": "Camiseta Nikola Jokic Denver Nuggets",
+      "price": "$88.000",
+      "image": "https://classicamericansports.com/cdn/shop/files/CAS_18-04-23-6_2000x2000.jpg?v=1682418446",
+      "images": [
+        "https://i5.walmartimages.com/asr/41ac3deb-3f17-402c-bb58-514394a83f42_1.e1a1cbd963c69d76d0d6d14a18357ff5.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF",
+        "https://fanatics.frgimages.com/denver-nuggets/denver-nuggets-nike-icon-edition-swingman-jersey-mens_ss5_p-202685714+pv-2+u-8xdplbl74bdk6gdbonwi+v-85qybdkszayt35z38hyo.jpg?_hv=2&w=900"
+      ],
+      "equipo": "Nuggets",
+      "stock": {
+        "S": 5,
+        "M": 3,
+        "L": 1,
+        "XL": 4
+      }
+    },
+    {
+      "id": "11",
+      "title": "Camiseta Brunson Knicks",
+      "price": "$80.000",
+      "equipo": "Knicks",
+      "image": "https://m.media-amazon.com/images/I/61Q4RLoJS3L._AC_SY550_.jpg",
+      "images": [
+        "https://fanatics.frgimages.com/new-york-knicks/youth-nike-jalen-brunson-blue-new-york-knicks-swingman-jersey-icon-edition_ss5_p-200465220+pv-2+u-7zixjilygt3xqb3g8jxl+v-8xeovojfqfjayjhdkcgx.jpg?_hv=2&w=900",
+        "https://fanatics.frgimages.com/new-york-knicks/youth-nike-jalen-brunson-blue-new-york-knicks-swingman-jersey-icon-edition_ss5_p-200465220+pv-3+u-7zixjilygt3xqb3g8jxl+v-ao8huxrr7p1l5ljeyjfm.jpg?_hv=2&w=900"
+      ],
+      "stock": {
+        "S": 1,
+        "M": 2,
+        "L": 3,
+        "XL": 4
+      }
+    }
+  ]
+}

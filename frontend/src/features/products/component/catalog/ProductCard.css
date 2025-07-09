@@ -1,0 +1,30 @@
+.product-card {
+  width: 250px; /* Establecer un ancho fijo */
+  height: 350px; /* Establecer una altura fija */
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+  color: black
+}
+
+.product-card img {
+  width: 100%; /* La imagen siempre será el 100% del ancho de la tarjeta */
+  height: 150px; /* Tamaño fijo para la imagen */
+  object-fit: contain; /* La imagen mantendrá su aspecto sin recortarse */
+}
+
+.product-card h4 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #333;
+}

@@ -1,0 +1,154 @@
+.checkout-container {
+  max-width: 600px;
+  margin: 7rem;
+  background-color: #1c1c1c;
+  padding: 2rem;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.checkout-form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.checkout-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.checkout-form input::placeholder {
+  color: #999;
+}
+
+.checkout-form .checkbox {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: -10rem;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.checkout-form .checkbox label {
+  flex: 1; /* Asegura que el texto ocupe el espacio necesario */
+  font-size: 0.9rem; /* Ajusta el tamaño del texto si es necesario */
+}
+
+.checkout-form label{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkout-form button {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.checkout-form button:hover {
+  background-color: #333;
+}
+
+.checkout-resumen {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #555;
+}
+
+.checkout-resumen h3,
+.checkout-resumen h4 {
+  margin-bottom: 1rem;
+}
+
+.checkout-resumen ul {
+  padding-left: 1.5rem;
+}
+
+.checkout-resumen li {
+  margin-bottom: 0.5rem;
+}
+
+.input-tarjeta {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-tarjeta input {
+  flex: 1;
+  padding-right: 40px; /* Espacio para el ícono */
+}
+
+/* Estilo base para el ícono */
+.tarjeta-icono {
+  position: absolute;
+  right: 10px;
+  font-size: 24px;
+  color: #007bff; /* Color azul para el ícono */
+}
+
+/* Colores específicos para cada tipo de tarjeta */
+.tarjeta-icono.visa {
+  color: #313af3; /* Azul de Visa */
+}
+
+.tarjeta-icono.mastercard {
+  color: #eb001b; /* Rojo de Mastercard */
+  background: linear-gradient(90deg, #eb001b 50%, #f79e1b 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tarjeta-icono.amex {
+  color: #2e77bc; /* Azul de American Express */
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input-envio {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.input-envio input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-envio button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-envio button:hover {
+  background-color: #0056b3;
+}
+

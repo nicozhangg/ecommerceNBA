@@ -1,0 +1,111 @@
+.editar-producto {
+  padding-top: 100px;
+  margin: 0 auto;
+  max-width: 1400px;
+  color: white;
+}
+
+.editar-producto-contenido {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.editar-producto-imagen img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.editar-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.editar-formulario label {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ✅ Unificación para todos los inputs y selects */
+.form-control {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.editar-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+fieldset {
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+legend {
+  font-weight: bold;
+}
+
+.talles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.talle-input {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.talle-input label {
+  width: 30px;
+}
+
+.talle-input input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+}
+
+.botones-formulario {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.guardar-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.eliminar-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

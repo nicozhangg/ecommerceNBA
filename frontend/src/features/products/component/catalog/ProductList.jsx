@@ -8,6 +8,8 @@ export default function ProductList({ selectedTeam }) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const location = useLocation();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const getSearchQuery = () => {
     const params = new URLSearchParams(location.search);
@@ -59,16 +61,24 @@ export default function ProductList({ selectedTeam }) {
     setFilteredProducts(filtered);
   }, [selectedTeam, products, location]);
 
+  if (loading) return <p>Cargando productos...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div className="product-list">
-      {filteredProducts.length > 0 ? (
-        filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))
-      ) : (
-        <div className="no-products">
-          <p>No se encontraron productos.</p>
-        </div>
+      {loading && <p>Cargando productos...</p>}
+      {error && <p className="error-message">Error: {error}</p>}
+
+      {!loading && !error && (
+        filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <div className="no-products">
+            <p>No se encontraron productos.</p>
+          </div>
+        )
       )}
     </div>
   );

@@ -5,6 +5,9 @@ import { getAllProductos } from '../../api/api';// Importamos desde el archivo c
 
 function EditarProductosLista() {
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
 
   useEffect(() => {
     const fetchProductos = async () => {

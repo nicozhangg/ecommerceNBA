@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getAllProductos } from '../../../api/api'; 
+import { getAllProductos } from '../../../../api/api'; 
 import ProductCard from './ProductCard';
 import './ProductList.css';
 

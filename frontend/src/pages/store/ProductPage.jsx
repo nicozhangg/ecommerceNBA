@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import "./ProductPage.css";
 import Navbar from "../../shared/component/layouts/NavBar";
 import { useCart } from "../../features/cart/context/CartContext";
-import { api } from "../../api/api"; // Tu instancia de Axios configurada
+import api from "../../api/api"; // Tu instancia de Axios configurada
 
 export default function ProductPage() {
   const { id } = useParams();

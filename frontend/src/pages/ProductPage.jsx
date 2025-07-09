@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./ProductPage.css";
 import Navbar from "../Components/NavBar";
 import { useCart } from "../context/CartContext";
-import { api } from "../../api/api"; 
+import api from "../api/api"; 
 
 export default function ProductPage() {
   const { id } = useParams();

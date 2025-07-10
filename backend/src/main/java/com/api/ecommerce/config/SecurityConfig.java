@@ -54,6 +54,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/checkout/**").authenticated()     
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/productos/**").permitAll()
+                .requestMatchers(HttpMethod.PATCH, "/api/productos/**").authenticated()
+
                 .requestMatchers("/admin/**").hasRole("ADMIN")  
                 .anyRequest().authenticated()
             )

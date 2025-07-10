@@ -105,7 +105,7 @@ const Checkout = () => {
           }
 
           // Actualizar el producto
-          await api.patch(`/productos/${item.id}`, { stock: nuevoStock });
+          await api.patch(`/productos/${item.id}`, { stockPorTalle: nuevoStock });
         } catch (error) {
           console.error(`Error actualizando stock para producto ${item.id}:`, error);
           throw error;

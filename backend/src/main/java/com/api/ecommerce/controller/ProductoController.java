@@ -57,21 +57,29 @@ public class ProductoController {
     }
  
     @PutMapping("/{id}")
+
     public ResponseEntity<?> actualizarProducto(@PathVariable String id, @RequestBody Producto productoNuevo) {
-        // Lanza excepción si el producto no existe
-        productoRepository.findById(id)            
-            .orElseThrow(() -> new ProductoNotFoundException(id));
+        try {
+            productoRepository.findById(id)
+                .orElseThrow(() -> new ProductoNotFoundException(id));
 
-        // Validación del precio
-        if (productoNuevo.getPrecio() < 0) {
-            throw new PrecioNegativoException();
+            if (productoNuevo.getPrecio() < 0) {
+                throw new PrecioNegativoException();
+            }
+
+            if (productoNuevo.getEquipo() == null || productoNuevo.getEquipo().trim().isEmpty()) {
+                throw new IllegalArgumentException("El equipo es obligatorio y debe ser seleccionado.");
+            }
+
+            productoNuevo.setId(id);
+            return ResponseEntity.ok(productoRepository.save(productoNuevo));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Error al actualizar producto: " + e.getMessage());
         }
-
-        productoNuevo.setId(id); // Asegura que se actualice el existente
-        return ResponseEntity.ok(productoRepository.save(productoNuevo));
-
     }
- 
+
     @PatchMapping("/{id}")
     public ResponseEntity<?> actualizarParcialProducto(@PathVariable String id, @RequestBody Map<String, Object> updates) {
         Producto producto = productoRepository.findById(id)

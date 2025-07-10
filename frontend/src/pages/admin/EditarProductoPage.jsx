@@ -14,18 +14,26 @@ function EditarProductoPage() {
   const [producto, setProducto] = useState(null);
 
   useEffect(() => {
-    getProductoById(id).then((res) => setProducto(res.data));
+    getProductoById(id).then((res) => {
+      const data = res.data;
+      // Asegurar que stock tenga todas las talles esperadas
+      const stockCompleto = {
+        S: 0, M: 0, L: 0, XL: 0,
+        ...data.stock
+      };
+      setProducto({ ...data, stock: stockCompleto });
+    });
   }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     if (name === 'price') {
+      // Actualiza como string visible, pero guarda también como número
       const rawValue = value.replace(/[^\d]/g, '');
-      const formatted = `$${Number(rawValue).toLocaleString('es-AR')}`;
       setProducto((prev) => ({
         ...prev,
-        price: formatted,
+        price: Number(rawValue),
       }));
     } else if (name.startsWith('stock.')) {
       const size = name.split('.')[1];
@@ -46,18 +54,28 @@ function EditarProductoPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await actualizarProducto(id, producto);
-    alert('Producto actualizado correctamente');
-    navigate('/admin/products/edit');
+    try {
+      await actualizarProducto(id, producto);
+      alert('Producto actualizado correctamente');
+      navigate('/admin/products/edit');
+    } catch (error) {
+      console.error('Error al actualizar producto', error);
+      alert('Ocurrió un error al actualizar el producto');
+    }
   };
 
   const handleDelete = async () => {
     const confirm = window.confirm('¿Estás seguro de que querés eliminar este producto? Esta acción no se puede deshacer.');
     if (!confirm) return;
 
-    await eliminarProducto(id);
-    alert('Producto eliminado correctamente');
-    navigate('/admin/products/edit');
+    try {
+      await eliminarProducto(id);
+      alert('Producto eliminado correctamente');
+      navigate('/admin/products/edit');
+    } catch (error) {
+      console.error('Error al eliminar producto', error);
+      alert('Ocurrió un error al eliminar el producto');
+    }
   };
 
   if (!producto) return <p>Cargando producto...</p>;
@@ -73,16 +91,16 @@ function EditarProductoPage() {
 
         <form className="editar-formulario" onSubmit={handleSubmit}>
           <label>Título</label>
-          <input className="form-control" name="title" value={producto.title} onChange={handleChange} />
+          <input className="form-control" name="title" value={producto.title || ''} onChange={handleChange} />
 
           <label>Precio</label>
-          <input className="form-control" name="price" value={producto.price} onChange={handleChange} />
+          <input className="form-control" name="price" value={producto.price || ''} onChange={handleChange} />
 
           <label>Equipo</label>
           <select
             className="form-control"
             name="equipo"
-            value={producto.equipo}
+            value={producto.equipo || ''}
             onChange={handleChange}
             required
           >
@@ -99,7 +117,7 @@ function EditarProductoPage() {
           </select>
 
           <label>Imagen principal</label>
-          <input className="form-control" name="image" value={producto.image} onChange={handleChange} />
+          <input className="form-control" name="image" value={producto.image || ''} onChange={handleChange} />
 
           <label>Imágenes adicionales</label>
           {producto.imagenes?.map((img, index) => (
@@ -131,7 +149,7 @@ function EditarProductoPage() {
                     className="form-control"
                     type="number"
                     name={`stock.${talle}`}
-                    value={producto.stock[talle]}
+                    value={producto.stock?.[talle] || 0}
                     onChange={handleChange}
                     min="0"
                   />
@@ -153,4 +171,3 @@ function EditarProductoPage() {
 }
 
 export default EditarProductoPage;
-

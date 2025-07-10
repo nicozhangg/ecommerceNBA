@@ -15,7 +15,7 @@ services:
     depends_on:
       - mongo
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://host.docker.internal:27017/nba
+      - MONGO_URI=mongodb://mongo:27017/nvea
       
   frontend:
     build: ./frontend

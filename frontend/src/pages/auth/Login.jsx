@@ -10,13 +10,13 @@ function Login() {
   const { login } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = login(email, password); // Llama a la función de inicio de sesión del contexto
+    const success = await login(email, password); // agregá el await
+
     if (success) {
       setMessage('¡Inicio de sesión exitoso! Redirigiendo a la página principal...');
       console.log('Inicio de sesión exitoso');
-
       setTimeout(() => {
         navigate('/');
       }, 2000);
@@ -25,6 +25,7 @@ function Login() {
       console.log('Credenciales incorrectas');
     }
   };
+
 
   return (
     <div className="login-container">

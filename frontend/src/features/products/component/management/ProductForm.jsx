@@ -46,24 +46,29 @@ function ProductForm({ initialData = {} }) {
     e.preventDefault();
 
     try {
-      // Limpiar formato del precio (quitar $ y puntos)
-      const precioNumerico = parseInt(form.price.replace(/[^\d]/g, ''), 10);
+      const rawPrice = form.price ? form.price.replace(/[^\d]/g, '') : '';
+      const precioNumerico = rawPrice ? parseInt(rawPrice, 10) : 0;
 
       const nuevoProducto = {
-        ...form,
-        price: precioNumerico,
+        nombre: form.title,
+        precio: precioNumerico,
+        imagenUrl: form.image,
+        imagenes: form.images,
+        equipo: form.equipo,
+        stockPorTalle: form.stock,
       };
 
       await crearProducto(nuevoProducto);
 
       alert('Producto guardado exitosamente');
-      // Podés agregar una redirección o reset de formulario acá si querés
+      // reset o redirección acá si querés
 
     } catch (error) {
       console.error('Error al guardar el producto:', error);
       alert('Error al guardar el producto');
     }
   };
+
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>

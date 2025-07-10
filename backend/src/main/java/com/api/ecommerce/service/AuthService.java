@@ -35,22 +35,37 @@ public class AuthService {
         String token = jwtService.getToken(usuario);
         return AuthResponse.builder()
                 .token(token)
+                .nombre(usuario.getNombre())
+                .apellido(usuario.getApellido())
+                .email(usuario.getEmail())
+                .role(usuario.getRole())
                 .build();
     }
 
     public AuthResponse register(RegisterRequest request) {
+        Role roleParsed;
+        try {
+                roleParsed = Role.valueOf(request.getRole().name()); // Si el frontend manda enum
+        } catch (Exception e) {
+                roleParsed = Role.USER; // Fallback si falla
+        }
+
         Usuario usuario = Usuario.builder()
                 .nombre(request.getNombre())
                 .apellido(request.getApellido())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(request.getRole() != null ? request.getRole() : Role.USER)  // 👈 Este es el ajuste clave
+                .role(roleParsed)
                 .build();
 
         usuarioRepository.save(usuario);
 
         return AuthResponse.builder()
                 .token(jwtService.getToken(usuario))
+                .nombre(usuario.getNombre())
+                .apellido(usuario.getApellido())
+                .email(usuario.getEmail())
+                .role(usuario.getRole())
                 .build();
     }
 }

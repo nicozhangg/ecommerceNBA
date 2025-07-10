@@ -14,6 +14,7 @@ const NavBar = () => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const navigate = useNavigate();
 
+
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -29,6 +30,9 @@ const NavBar = () => {
     logout(); // Llamar a la función de logout del contexto
     navigate('/login'); // Redirigir al usuario a la página de login
   };
+  
+  console.log('currentUser:', currentUser);
+
 
   return (
     <nav className="navbar">
@@ -36,11 +40,11 @@ const NavBar = () => {
         <Link to="/store" className="nav-link">Jerseys</Link>
         <Link to="/contacto" className="nav-link">Contacto</Link>
         {/* Mostrar el enlace de Admin solo si el usuario es administrador */}
-        {currentUser?.role === 'admin' && (
+        {currentUser?.role.toUpperCase() === 'ADMIN' && (
           <Link to="/admin" className="nav-link">Admin</Link>
         )}
       </div>
-
+      
       <div className="logo-container">
         <Link to="/">
           <img src={lakersLogo} alt="Lakers Logo" className="logo" />

@@ -1,5 +1,6 @@
 package com.api.ecommerce.dto;
 
+import com.api.ecommerce.model.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,5 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthResponse {
-    String token; 
+    private String token;
+    private String nombre;
+    private String apellido;
+    private String email;
+    private Role role;
 }

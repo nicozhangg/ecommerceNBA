@@ -1,53 +1,56 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { loginUser, registerUser } from '../../../api/api'; // Asegurate que esta ruta sea la correcta
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    // Almacenar todos los usuarios registrados
-    const [users, setUsers] = useState(() => {
-        // Cargar usuarios desde localStorage al iniciar
-        const storedUsers = localStorage.getItem('users');
-        return storedUsers ? JSON.parse(storedUsers) : [];
-    });
-
-    // Almacenar el usuario actual
     const [currentUser, setCurrentUser] = useState(() => {
-        // Cargar usuario actual desde localStorage al iniciar
         const storedUser = localStorage.getItem('currentUser');
         return storedUser ? JSON.parse(storedUser) : null;
     });
 
-    const addUser = (newUser) => {
-        const updatedUsers = [...users, newUser];
-        setUsers(updatedUsers);
-        localStorage.setItem('users', JSON.stringify(updatedUsers)); // Guardar en localStorage
+    // 🔐 Login contra el backend con JWT
+    const login = async (email, password) => {
+        try {
+            const response = await loginUser({ email, password }); // hace POST /auth/login
+            const { token, role, nombre, apellido } = response.data;
+
+            // Guardar token en localStorage
+            localStorage.setItem('token', token);
+
+            // Normalizar el role a mayúsculas para evitar problemas de casing
+            const normalizedRole = role ? role.toUpperCase() : 'ADMIN';
+
+            const user = { email, role: normalizedRole, nombre, apellido }; // podés adaptar esto según la respuesta de tu backend
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            setCurrentUser(user);
+
+            return true;
+        } catch (error) {
+            console.error('Error al iniciar sesión:', error);
+            return false;
+        }
     };
 
-    const login = (email, password) => {
-        // Verificar si el usuario existe y la contraseña es correcta
-        const user = users.find(
-            (u) => u.email === email && u.password === password
-        );
-        if (user) {
-            setCurrentUser(user);
-            localStorage.setItem('currentUser', JSON.stringify(user)); // Guardar usuario actual en localStorage
+    // 🆕 Registro (si usás /auth/register en el backend)
+    const addUser = async (newUser) => {
+        try {
+            await registerUser(newUser); // hace POST /auth/register
             return true;
+        } catch (error) {
+            console.error('Error al registrar usuario:', error);
+            return false;
         }
-        return false; // Login fallido
     };
 
     const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('currentUser');
         setCurrentUser(null);
-        localStorage.removeItem('currentUser'); // Eliminar usuario actual de localStorage
     };
 
-    useEffect(() => {
-        // Sincronizar usuarios con localStorage cuando cambien
-        localStorage.setItem('users', JSON.stringify(users));
-    }, [users]);
-
     return (
-        <UserContext.Provider value={{ users, currentUser, addUser, login, logout }}>
+        <UserContext.Provider value={{ currentUser, login, logout, addUser }}>
             {children}
         </UserContext.Provider>
     );

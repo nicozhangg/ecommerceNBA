@@ -12,38 +12,34 @@ function Registro() {
     const [message, setMessage] = useState('');
     const [error, setError] = useState(''); // Estado para manejar errores
 
-    const { users, addUser } = useContext(UserContext); // Accede a la lista de usuarios
+    const { addUser } = useContext(UserContext);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Validar si el correo ya está registrado
-        const userExists = users.some((user) => user.email === email);
-        if (userExists) {
-            setError('El correo electrónico ya está registrado. Intenta con otro.');
-            return;
-        }
 
         // Crear el nuevo usuario
         const newUser = { nombre, apellido, email, password, role };
-        addUser(newUser);
-        setMessage('¡Registro exitoso! Redirigiendo a la página de inicio de sesión...');
-        console.log('Usuario registrado:', newUser);
 
-        // Redirigir a la página de login después de 2 segundos
-        setTimeout(() => {
-            navigate('/login');
-        }, 2000);
+        const success = await addUser(newUser); // ⬅️ usar función async del contexto
+
+        if (success) {
+            setMessage('¡Registro exitoso! Redirigiendo a la página de inicio de sesión...');
+            console.log('Usuario registrado:', newUser);
+            setTimeout(() => navigate('/login'), 2000);
+        } else {
+            setError('Error al registrar. Intenta con otro correo.');
+        }
 
         // Limpiar el formulario
         setNombre('');
         setApellido('');
         setEmail('');
         setPassword('');
-        setRole('user');
-        setError(''); // Limpiar el mensaje de error
+        setRole('USER');
+        setError('');
     };
+
 
     return (
         <div className="registro-container">
@@ -90,8 +86,8 @@ function Registro() {
                     onChange={(e) => setRole(e.target.value)}
                     required
                 >
-                    <option value="user">Usuario</option>
-                    <option value="admin">Administrador</option>
+                    <option value="USER">Usuario</option>
+                    <option value="ADMIN">Administrador</option>
                 </select>
 
                 <button type="submit">Registrarse</button>

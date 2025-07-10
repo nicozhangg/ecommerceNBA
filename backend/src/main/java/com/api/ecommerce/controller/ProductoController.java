@@ -129,6 +129,8 @@ public class ProductoController {
                         if (stock < 0) {
                             throw new StockNegativoException("El stock para el talle '" + talle + "' no puede ser negativo.");
                         }
+                        
+                        stockMap.put(talle, stock);
 
                     });
                     producto.setStockPorTalle(stockMap);

@@ -182,6 +182,24 @@ textarea {
   border-radius: 10px; /* Opcional: bordes redondeados */
 }
 
+.product-gallery .main-image {
+  width: 100%;
+  max-width: 450px;
+  height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.product-gallery .main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Importante: evita que se deforme */
+  display: block;
+}
+
+
 .product-page__carousel img {
   width: 100%;
   height: 100%;

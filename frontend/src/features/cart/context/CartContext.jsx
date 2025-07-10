@@ -35,7 +35,15 @@ export const CartProvider = ({ children }) => {
   const getAvailableStock = (productId, size) => {
     const product = products.find(p => p.id === productId);
     if (!product || !product.stock) return 0;
-    return product.stock[size] || 0;
+
+    const totalStock = product.stock[size] || 0;
+
+    // Buscar cuántas unidades de ese talle ya están en el carrito
+    const cantidadEnCarrito = cartItems
+      .filter(item => item.id === productId && item.talle === size)
+      .reduce((sum, item) => sum + item.quantity, 0);
+
+    return totalStock - cantidadEnCarrito;
   };
 
   // Función para agregar un producto al carrito

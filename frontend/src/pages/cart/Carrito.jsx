@@ -47,7 +47,7 @@ const Carrito = () => {
                   <>
                     <p><strong>Talle:</strong> {item.talle}</p>
                     <p className="stock-info">
-                      Disponibles: {availableStock - item.quantity} restantes
+                      Disponibles: {availableStock} restantes
                     </p>
                   </>
                 )}

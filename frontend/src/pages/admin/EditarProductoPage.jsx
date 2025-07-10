@@ -14,6 +14,7 @@ function EditarProductoPage() {
   const [producto, setProducto] = useState(null);
 
   useEffect(() => {
+    if (!id) return; // <- evita fetch innecesario
     getProductoById(id).then((res) => setProducto(res.data));
   }, [id]);
 

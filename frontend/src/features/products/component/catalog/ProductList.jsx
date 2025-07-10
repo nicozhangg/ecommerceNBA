@@ -21,7 +21,8 @@ export default function ProductList({ selectedTeam }) {
     const loadProducts = async () => {
       try {
         setLoading(true);
-        const response = await getAllProductos(); // Usa tu función de API
+        const response = await getAllProductos(); 
+        console.log("🔥 Productos del backend:", response.data);// Usa tu función de API
         setProducts(response.data);
       } catch (err) {
         console.error('Error cargando productos:', err);
@@ -72,7 +73,8 @@ export default function ProductList({ selectedTeam }) {
       {!loading && !error && (
         filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id || product._id} product={product} />
+
           ))
         ) : (
           <div className="no-products">

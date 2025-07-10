@@ -1,27 +1,33 @@
 import { useCart } from '../../features/cart/context/CartContext';
 import { Link } from 'react-router-dom';
 import './Carrito.css';
-
+ 
 const Carrito = () => {
-  const { 
-    cartItems,        // Lista de productos en el carrito
-    updateQuantity,   // Función para cambiar cantidad de un producto
-    removeFromCart,   // Función para eliminar un producto del carrito
-    getTotal,         // Función para calcular el total del carrito
-    getAvailableStock // Función para obtener stock disponible de un producto y talle
+  const {
+    cartItems,
+    updateQuantity,
+    removeFromCart,
+    getTotal,
+    getAvailableStock
   } = useCart();
-
-  // Función para aumentar cantidad respetando stock disponible
+ 
+  // ✅ Función para formatear precios con control de errores
+  const formatPrecio = (precio) => {
+    return typeof precio === 'number'
+      ? `$${precio.toLocaleString('es-AR')}`
+      : 'Precio no disponible';
+  };
+ 
+  // ✅ Función para aumentar cantidad respetando stock disponible
   const handleIncreaseQuantity = (item) => {
     const availableStock = getAvailableStock(item.id, item.talle);
-    if (item.quantity < availableStock) { // Condicion que no supere el stock actual
+    if (item.quantity < availableStock) {
       updateQuantity(item.id, 1, item.talle);
     } else {
       alert(`No puedes agregar más. Stock máximo: ${availableStock}`);
     }
   };
-
-  // Si el carrito está vacío, mostrar mensaje y botón para ir a la tienda  
+ 
   if (cartItems.length === 0) {
     return (
       <div className="carrito-vacio">
@@ -30,7 +36,7 @@ const Carrito = () => {
       </div>
     );
   }
-
+ 
   return (
     <div className="carrito-container">
       <h2>Carrito de Compras</h2>
@@ -42,7 +48,7 @@ const Carrito = () => {
               <img src={item.imagen} alt={item.nombre} className="carrito-img" />
               <div className="carrito-detalle">
                 <h4>{item.nombre}</h4>
-                <p>${item.precio.toLocaleString()}</p>
+                <p>{formatPrecio(item.precio)}</p>
                 {item.talle && (
                   <>
                     <p><strong>Talle:</strong> {item.talle}</p>
@@ -52,22 +58,22 @@ const Carrito = () => {
                   </>
                 )}
                 <div className="cantidad-controles">
-                  <button 
+                  <button
                     onClick={() => updateQuantity(item.id, -1, item.talle)}
                     disabled={item.quantity <= 1}
                   >
                     -
                   </button>
                   <span>{item.quantity}</span>
-                  <button 
+                  <button
                     onClick={() => handleIncreaseQuantity(item)}
                     disabled={item.quantity >= availableStock}
                   >
                     +
                   </button>
                 </div>
-                <button 
-                  onClick={() => removeFromCart(item.id, item.talle)} 
+                <button
+                  onClick={() => removeFromCart(item.id, item.talle)}
                   className="btn-borrar"
                 >
                   Eliminar
@@ -78,7 +84,7 @@ const Carrito = () => {
         })}
       </ul>
       <div className="carrito-total">
-        <h3>Total: ${getTotal().toLocaleString()}</h3>
+        <h3>Total: {formatPrecio(getTotal())}</h3>
         <div className="carrito-botones">
           <Link to="/store">
             <button className="btn-seguir-comprando">
@@ -95,5 +101,5 @@ const Carrito = () => {
     </div>
   );
 };
-
+ 
 export default Carrito;

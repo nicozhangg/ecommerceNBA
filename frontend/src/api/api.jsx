@@ -43,8 +43,9 @@ export const eliminarProducto = (id) => api.delete(`/productos/${id}`);
 export const crearPedido = (pedido) => api.post('/carrito/checkout', pedido);
 
 // ----------- STOCK ----------------
-export const actualizarStock = (id, stock) =>
-  api.patch(`/productos/${id}/stock`, { stock });
+export const actualizarStock = (id, stockPorTalle) =>
+  api.patch(`/productos/${id}`, { stockPorTalle });
+
 
 export default api;
 export const obtenerProductos = getAllProductos;

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import StockManager from '../../features/products/component/management/StockManager';
 import './ManageStockPage.css';
-import { getAllProductos as obtenerProductos } from '../../api/api';
- // ✅ Importamos desde api central
-
+import { getAllProductos as obtenerProductos } from '../../api/api'; 
 function ManageStockPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);

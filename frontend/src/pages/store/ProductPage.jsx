@@ -30,15 +30,29 @@ export default function ProductPage() {
         setLoading(true);
         const response = await api.get("/productos");
         console.log("Productos recibidos:", response.data); // Usamos la instancia de axios
-        setAllProducts(response.data);
-        
-        // Encontrar el producto actual
-        const currentProduct = response.data.find(p => p.id === id || p._id === id);
+
+        // ✅ Función para mapear un producto del backend al formato esperado en frontend
+        const transformProduct = (p) => ({
+          ...p,
+          precio: p.price,
+          imagen: p.image,
+          stock: p.stockPorTalle ?? p.stock,
+        });
+
+        // 🔍 Buscar el producto actual
+        const rawProduct = response.data.find(p => p.id === id || p._id === id);
+        if (!rawProduct) throw new Error("Producto no encontrado");
+
+        // ✅ Aplicar transformación
+        const currentProduct = transformProduct(rawProduct);
+        const allMappedProducts = response.data.map(transformProduct);
+
         console.log("Producto seleccionado:", currentProduct);
-        if (!currentProduct) {
-          throw new Error("Producto no encontrado");
-        }
+
+        // ✅ Guardar en estado
         setProduct(currentProduct);
+        setAllProducts(allMappedProducts);
+
       } catch (err) {
         console.error("Error:", err);
         setError(err.message);
@@ -49,6 +63,7 @@ export default function ProductPage() {
 
     loadProducts();
   }, [id]);
+
 
   // Filtrar productos similares cuando cambia el producto principal o allProducts
   useEffect(() => {

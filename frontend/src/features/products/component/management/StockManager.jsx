@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './StockManager.css';
-import { actualizarProducto } from '../../../../api/api';
-
-
- // ✅ Import axios centralizado
+import { actualizarStock } from '../../../../api/api';
 
 function StockManager({ product }) {
-  const [stock, setStock] = useState(product.stock);
+  // Inicializo con objeto seguro para evitar undefined
+  const [stock, setStock] = useState(
+    product.stockPorTalle || { S: 0, M: 0, L: 0, XL: 0 }
+  );
 
   const handleStockChange = (size, value) => {
     const newStock = { ...stock, [size]: parseInt(value) || 0 };
@@ -15,7 +15,7 @@ function StockManager({ product }) {
 
   const handleSave = async () => {
     try {
-      await actualizarProducto(product._id, { ...product, stock }); // ✅ Enviamos con axios
+      await actualizarStock(product.id, stock);
       alert('Stock actualizado correctamente');
     } catch (error) {
       console.error(error);
@@ -42,7 +42,7 @@ function StockManager({ product }) {
                   <input
                     type="number"
                     min="0"
-                    value={stock[size]}
+                    value={stock[size] ?? 0}  // fallback a 0 si es undefined
                     onChange={(e) => handleStockChange(size, e.target.value)}
                   />
                 </div>

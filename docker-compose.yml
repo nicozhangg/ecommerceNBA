@@ -15,8 +15,8 @@ services:
     depends_on:
       - mongo
     environment:
-      - MONGO_URI=mongodb://mongo:27017/nvea
-
+      - SPRING_DATA_MONGODB_URI=mongodb://host.docker.internal:27017/nba
+      
   frontend:
     build: ./frontend
     container_name: react-frontend

@@ -28,11 +28,13 @@ export default function ProductPage() {
     const loadProducts = async () => {
       try {
         setLoading(true);
-        const response = await api.get("/productos"); // Usamos la instancia de axios
+        const response = await api.get("/productos");
+        console.log("Productos recibidos:", response.data); // Usamos la instancia de axios
         setAllProducts(response.data);
         
         // Encontrar el producto actual
         const currentProduct = response.data.find(p => p.id === id || p._id === id);
+        console.log("Producto seleccionado:", currentProduct);
         if (!currentProduct) {
           throw new Error("Producto no encontrado");
         }
@@ -198,7 +200,11 @@ export default function ProductPage() {
         {/* Información del producto */}
         <div className="product-info">
           <h1>{product.nombre}</h1>
-          <p className="price">${product.precio.toLocaleString('es-AR')}</p>
+          <p className="price">
+            {typeof product.precio === 'number'
+              ? `$${product.precio.toLocaleString('es-AR')}`
+              : 'Precio no disponible'}
+          </p>
           
           <div className="team-category">
             <span>{product.equipo}</span>
@@ -296,7 +302,11 @@ export default function ProductPage() {
                     <Link to={`/producto/${product.id || product._id}`}>
                       <img src={product.imagen} alt={product.nombre} />
                       <h3>{product.nombre}</h3>
-                      <p>${product.precio.toLocaleString('es-AR')}</p>
+                      <p>
+                        {typeof product.precio === 'number'
+                          ? `$${product.precio.toLocaleString('es-AR')}`
+                          : 'Precio no disponible'}
+                      </p>
                     </Link>
                   </div>
                 ))

@@ -51,11 +51,10 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/checkout/**").authenticated()     
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/productos/**").permitAll()
-
-                .requestMatchers("/api/productos/**").hasRole("ADMIN")
-                .requestMatchers("/api/carrito/**").hasRole("USER")
+                .requestMatchers("/admin/**").hasRole("ADMIN")  
                 .anyRequest().authenticated()
             )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

@@ -8,7 +8,7 @@ function Registro() {
     const [apellido, setApellido] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [role, setRole] = useState('user');
+    const [role, setRole] = useState('USER');
     const [message, setMessage] = useState('');
     const [error, setError] = useState(''); // Estado para manejar errores
 

@@ -214,7 +214,7 @@ export default function ProductPage() {
 
         {/* Información del producto */}
         <div className="product-info">
-          <h1>{product.nombre}</h1>
+          <h1>{product.title}</h1>
           <p className="price">
             {typeof product.precio === 'number'
               ? `$${product.precio.toLocaleString('es-AR')}`

@@ -15,6 +15,7 @@ function StockManager({ product }) {
 
   const handleSave = async () => {
     try {
+      console.log("Enviando stock:", stock);
       await actualizarStock(product.id, stock);
       alert('Stock actualizado correctamente');
     } catch (error) {

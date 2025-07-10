@@ -102,7 +102,7 @@ function EditarProductoPage() {
           <input className="form-control" name="image" value={producto.image} onChange={handleChange} />
 
           <label>Imágenes adicionales</label>
-          {producto.images.map((img, index) => (
+          {producto.imagenes?.map((img, index) => (
             <input
               key={index}
               className="form-control"
@@ -111,11 +111,11 @@ function EditarProductoPage() {
               placeholder={`Imagen secundaria ${index + 1}`}
               value={img}
               onChange={(e) => {
-                const nuevasImagenes = [...producto.images];
+                const nuevasImagenes = [...producto.imagenes];
                 nuevasImagenes[index] = e.target.value;
                 setProducto((prev) => ({
                   ...prev,
-                  images: nuevasImagenes,
+                  imagenes: nuevasImagenes,
                 }));
               }}
             />

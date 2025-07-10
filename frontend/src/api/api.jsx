@@ -44,7 +44,11 @@ export const crearPedido = (pedido) => api.post('/carrito/checkout', pedido);
 
 // ----------- STOCK ----------------
 export const actualizarStock = (id, stockPorTalle) =>
-  api.patch(`/productos/${id}`, { stockPorTalle });
+  api.patch(`/productos/${id}`, { stock: stockPorTalle });
+
+// ----------- CONSULTAS ----------------
+export const enviarConsultaContacto = (consulta) =>
+  api.post('/contacto', consulta);
 
 
 export default api;

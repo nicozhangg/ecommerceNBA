@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Contacto.css";
+import { enviarConsultaContacto } from "../api/api"; 
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -16,10 +17,16 @@ const Contacto = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Formulario enviado correctamente. ¡Gracias por contactarnos!");
+    try {
+      await enviarConsultaContacto(formData);
+      alert("Formulario enviado correctamente. ¡Gracias por contactarnos!");
+      setFormData({ nombre: '', email: '', mensaje: '' });
+    } catch (error) {
+      console.error(error);
+      alert("Error al enviar el formulario. Intenta nuevamente.");
+    }
   };
 
   return (

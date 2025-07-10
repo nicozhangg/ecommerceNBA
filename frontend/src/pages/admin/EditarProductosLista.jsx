@@ -35,12 +35,12 @@ function EditarProductosLista() {
       <h2>Seleccionar Producto a Editar</h2>
       <ul className="producto-lista">
         {productos.map((producto) => (
-          <li key={producto._id} className="producto-item">
+          <li key={producto.id} className="producto-item">
             <div>
               <strong>{producto.title}</strong><br />
               {producto.equipo} - {producto.price}
             </div>
-            <Link to={`/admin/products/edit/${producto._id}`}>
+            <Link to={`/admin/products/edit/${producto.id}`}>
               <button className="edit-button">Editar</button>
             </Link>
           </li>

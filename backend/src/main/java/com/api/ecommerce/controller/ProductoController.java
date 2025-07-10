@@ -5,6 +5,7 @@ import com.api.ecommerce.repository.ProductoRepository;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import com.api.ecommerce.exception.ProductoNotFoundException;
 import com.api.ecommerce.exception.StockNegativoException;
@@ -33,7 +34,8 @@ public class ProductoController {
         return productoRepository.findById(id)
             .orElseThrow(() -> new ProductoNotFoundException(id));
     }
- 
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public Producto crearProducto(@RequestBody Producto producto) {
         // Validar precio

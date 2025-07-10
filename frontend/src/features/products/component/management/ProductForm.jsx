@@ -18,9 +18,9 @@ function ProductForm({ initialData = {} }) {
     const { name, value } = e.target;
 
     if (['S', 'M', 'L', 'XL'].includes(name)) {
-      setForm(prev => ({
+      setForm((prev) => ({
         ...prev,
-        stock: { ...prev.stock, [name]: parseInt(value) || 0 }
+        stock: { ...prev.stock, [name]: parseInt(value) || 0 },
       }));
     } else if (name === 'price') {
       const rawValue = value.replace(/[^\d]/g, '');
@@ -50,25 +50,23 @@ function ProductForm({ initialData = {} }) {
       const precioNumerico = rawPrice ? parseInt(rawPrice, 10) : 0;
 
       const nuevoProducto = {
-        nombre: form.title,
-        precio: precioNumerico,
-        imagenUrl: form.image,
+        title: form.title,
+        price: precioNumerico,
+        image: form.image,
         imagenes: form.images,
         equipo: form.equipo,
-        stockPorTalle: form.stock,
+        stock: form.stock,
       };
 
       await crearProducto(nuevoProducto);
 
       alert('Producto guardado exitosamente');
-      // reset o redirección acá si querés
-
+      // Podés resetear el form o redireccionar
     } catch (error) {
       console.error('Error al guardar el producto:', error);
       alert('Error al guardar el producto');
     }
   };
-
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
@@ -132,7 +130,7 @@ function ProductForm({ initialData = {} }) {
 
       <fieldset>
         <legend>Stock por Talle</legend>
-        {['S', 'M', 'L', 'XL'].map(size => (
+        {['S', 'M', 'L', 'XL'].map((size) => (
           <label key={size}>
             {size}:
             <input
@@ -153,4 +151,3 @@ function ProductForm({ initialData = {} }) {
 }
 
 export default ProductForm;
-

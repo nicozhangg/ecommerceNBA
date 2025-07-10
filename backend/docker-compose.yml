@@ -1,21 +1,13 @@
-services:
-  mongo:
-    image: mongo
-    container_name: mongo-db
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
+version: "3.9"
 
+services:
   backend:
     build: ./backend
     container_name: spring-backend
     ports:
       - "8080:8080"
-    depends_on:
-      - mongo
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/nvea
+    environment: 
+      - MONGO_URI=${MONGO_URI}
 
   frontend:
     build: ./frontend
@@ -24,9 +16,3 @@ services:
       - "3000:80"
     depends_on:
       - backend
-
-volumes:
-  mongo_data:
-
-
-
